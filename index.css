@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+* {
+    font-family: "Roboto Slab", serif;
+    font-size: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
+    font-weight: 400;
+}
+body, p, span {
+    margin: 0;
+    padding: 0;
+}
+.tw-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tw-start {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.tw-center-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tw-gap-1 {
+    gap: 4px;
+}
+.tw-gap-2 {
+    gap: 8px;
+}
+.tw-gap-4 {
+    gap: 16px;
+}
+.tw-grid {
+    display: grid;
+}
+.tw-grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.tw-grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.tw-grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+.tw-col-span-4 {
+    grid-column: span 4 / span 4;
+}
+.tw-col-span-8 {
+    grid-column: span 8 / span 8;
+}
+.input-common {
+    border: 1px solid #9B9FA0;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 0 4px;
+    width: 30px;
+}
+.textarea-common {
+    border: 1px solid #9B9FA0;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 0 4px;
+}
+.select-common {
+    border: 1px solid #9B9FA0;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 0 4px;
+}
+.text-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    line-height: 16px;
+}
+.met-special-report {
+    margin: 32px auto;
+    max-width: 1920px;
+    background: white;
+    border: 1px solid #6F7377;
+}
+.met-special-report--header {
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.met-special-report--header__left {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.met-special-report--header__left .icon-header {
+    width: 12px;
+    height: 12px;
+}
+.met-special-report--header__left .text-header {
+    font-size: 16px;
+    font-weight: 600;
+}
+.met-special-report--header__right .icon-close {
+    width: 12px;
+    height: 12px;
+}
+.met-special-report--content {
+    background: #EEECED;
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+.met-special-report--content__menual-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+.met-special-report--content__met-report {
+    width: 100%;
+    position: relative;
+    border: 1px solid #bbbcc0;
+    padding: 16px;
+}
+.met-special-report--content__met-report .text-header {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    background: #EEECED;
+    padding: 0 4px;
+}
+.met-special-report--content__met-report .block-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px;
+}
+.met-special-report--content__cavok {
+    width: 100%;
+    position: relative;
+    border: 1px solid #bbbcc0;
+    padding: 16px;
+}
+.met-special-report--content__cavok .text-header {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    background: #EEECED;
+    padding: 0 4px;
+}
+.met-special-report--content__tab {
+    width: 100%;
+    position: relative;
+    border: 1px solid #bbbcc0;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding-bottom: 50px;
+}
+.met-special-report--content__tab--tdz {
+    padding: 16px 8px;
+    border: 1px solid #bbbcc0;
+    position: relative;
+}
+.met-special-report--content__tab--tdz .text-header {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    background: #EEECED;
+    padding: 0 4px;
+}
+.met-special-report--content__tab--main {
+    width: 100%;
+    min-height: 385px;
+    position: relative;
+}
+.met-special-report--content__tab--main--header {
+    position: absolute;
+    left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.met-special-report--content__tab--main--header .button-tab-general {
+    padding: 4px 8px;
+    border: 1px solid #939191;
+    border-radius: 8px 0 0 0;
+    background: #EFECED;
+}
+.met-special-report--content__tab--main--header .button-tab-general.active {
+    background: #CBDEF4;
+    border: 1px solid #B2BBCF;
+    border-bottom: 0px;
+}
+.met-special-report--content__tab--main--content {
+    position: absolute;
+    top: 24px;
+    border: 2px solid #969DAD;
+    background: #EEEEEE;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+}
+.met-special-report--content__tab--main--content .tab-winds {
+    margin: 16px 0px 8px 8px;
+    padding: 48px 8px;
+    height: 354px;
+    border: 1px solid #bbbcc0;
+    position: relative;
+}
+.met-special-report--content__tab--main--content .tab-winds .text-header {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    background: #EEECED;
+    padding: 0 4px;
+}
+.met-special-report--content__tab--main--content .tab-winds .text-label-winds {
+    min-width: 100px;
+}
+.met-special-report--content__tab--main--content .tab-visibility {
+    margin: 16px 0px 8px 8px;
+    padding: 48px 8px;
+    border: 1px solid #bbbcc0;
+    position: relative;
+}
+.met-special-report--content__tab--main--content .tab-visibility .text-header {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    background: #EEECED;
+    padding: 0 4px;
+}
+.met-special-report--content__tab--main--content .tab-visibility--content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.met-special-report--content__tab--main--content .tab-rvr {
+    margin: 16px 0px 8px 8px;
+    padding: 48px 8px;
+    border: 1px solid #bbbcc0;
+    position: relative;
+}
+.met-special-report--content__tab--main--content .tab-rvr .text-header {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    background: #EEECED;
+    padding: 0 4px;
+}
+.met-special-report--content__tab--main--content .tab-rvr--content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.met-special-report--content__tab--main--content .tab-clouds {
+    margin: 16px 8px 8px 8px;
+    padding: 48px 8px;
+    border: 1px solid #bbbcc0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 16px;
+    height: 354px;
+}
+.met-special-report--content__tab--main--content .tab-clouds .text-header {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    background: #EEECED;
+    padding: 0 4px;
+}
+.met-special-report--content__present-weather {
+    width: 100%;
+}
+.met-special-report--content__present-weather--content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.met-special-report--content__present-weather--content--left {
+    width: 30%;
+    position: relative;
+    border: 1px solid #bbbcc0;
+    padding: 16px;
+}
+.met-special-report--content__present-weather--content--left .text-header {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    background: #EEECED;
+    padding: 0 4px;
+}
+.met-special-report--content__present-weather--content--right {
+    width: 30%;
+    position: relative;
+    border: 1px solid #bbbcc0;
+    padding: 16px;
+}
+.met-special-report--content__present-weather--content--right .input-weather {
+    width: 60px;
+}
+.met-special-report--content__trend {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.met-special-report--content__equal {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 8px;
+}
+.met-special-report--content__preview {
+    width: 100%;
+    position: relative;
+    border: 1px solid #bbbcc0;
+    padding: 16px;
+}
+.met-special-report--content__preview .text-header {
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    background: #EEECED;
+    padding: 0 4px;
+}
+.met-special-report .block-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    background: #EEEEEE;
+}
+.met-special-report .block-footer .btn-footer {
+    padding: 4px 12px;
+    background: linear-gradient(90deg, #ECF1F7, #C6D4E5);
+    border: 1px solid #BBBEC4;
+    border-radius: 4px;
+    min-width: 120px;
+}

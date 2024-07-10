@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="tailwind.js"></script>
+    <script defer src="index.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+<div class="met-special-report">
+    <div class="met-special-report--header">
+        <div class="met-special-report--header__left">
+            <img class="icon-header" src="" alt="icon-header">
+            <span class="text-header">MET REPORT / SPECIAL Report</span>
+        </div>
+        <button class="met-special-report--header__right">
+            <img class="icon-close" src="" alt="icon-close"/>
+        </button>
+    </div>
+    <div class="met-special-report--content">
+        <div class="met-special-report--content__menual-input">
+            <label class="text-label" for="menual-input">Menual input</label>
+            <input type="checkbox" id="menual-input" name="menual-input" value="MENUAL_INPUT" onchange="getMenualInput()"/>
+        </div>
+        <div class="met-special-report--content__met-report">
+            <p class="text-header text-label">MET REPORT Header Fields</p>
+            <div class="tw-center tw-gap-4" style="align-items: start">
+                <div class="tw-center-col tw-gap-2" style="align-items: start">
+                    <div class="tw-center tw-gap-1">
+                        <p class="text-label">ICAO Idenitifier:</p>
+                        <input type="text" class="input-common" id="icao-idenitifier" style="width: 100px" onchange="getIcaoIdenitifier()"/>
+                    </div>
+                    <div class="block-time">
+                        <p class="text-label" style="min-width: 110px">Time</p>
+                        <div class="tw-center tw-gap-2">
+                            <input type="time" class="input-common" id="time-met-report" style="width: 100px;" />
+                            <span class="text-label">Z</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tw-center tw-gap-2">
+                    <label class="text-label" for="select-met-report">Type:</label>
+                    <select name="select-met-report" class="select-common" id="select-met-report" onchange="selectMetReport()">
+                        <option value="MET REPORT">MET REPORT</option>
+                        <option value="MET REPORT1">MET REPORT1</option>
+                        <option value="MET REPORT2">MET REPORT2</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="met-special-report--content__cavok">
+            <p class="text-header text-label">CAVOK</p>
+            <div class="tw-center tw-gap-1">
+                <label class="text-label" for="report-cavok">Report CAVOK</label>
+                <input type="checkbox" id="report-cavok" name="report-cavok"/>
+            </div>
+        </div>
+        <div class="met-special-report--content__tab">
+            <div class="met-special-report--content__tab--tdz">
+                <p class="text-header text-label">TDZ</p>
+                <form class="tw-grid tw-grid-cols-2 tw-gap-2">
+                    <input type="radio" id="tdz-radio-14" name="tdz-radio" value="14">
+                    <label class="text-label" for="tdz-radio-14">14</label>
+                    <input type="radio" id="tdz-radio-32" name="tdz-radio" value="32">
+                    <label class="text-label" for="tdz-radio-32">32</label>
+                </form>
+            </div>
+            <div class="met-special-report--content__tab--main">
+                <div class="met-special-report--content__tab--main--header">
+                    <button class="button-tab-general text-label active" onclick="clickTab('tdz')">TDZ</button>
+                    <button class="button-tab-general text-label" onclick="clickTab('mid')">MID</button>
+                    <button class="button-tab-general text-label" onclick="clickTab('end')">END</button>
+                </div>
+                <div class="met-special-report--content__tab--main--content">
+                    <div class="tab-winds">
+                        <p class="text-header text-label">Winds</p>
+                        <div class="block-winds">
+                            <div class="tw-grid tw-grid-cols-12" style="row-gap: 16px">
+                                <p class="tw-col-span-4 text-label text-label-winds"></p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input type="checkbox" id="report-winds" name="report-winds">
+                                    <label class="text-label" for="report-winds">Report</label>
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Direction:</p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-direction">
+                                    <div class="tw-center tw-gap-1">
+                                        <input type="checkbox" id="report-winds" name="vrb-winds">
+                                        <label class="text-label" for="vrb-winds">VRB</label>
+                                    </div>
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Speed:</p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-direction">
+                                    <div class="tw-center tw-gap-1">
+                                        <input type="radio" id="radio-winds-kt" name="radio-winds" value="KT">
+                                        <label class="text-label" for="radio-winds-kt">KT</label>
+                                        <input type="radio" id="radio-winds-kmh" name="radio-winds" value="KMH">
+                                        <label class="text-label" for="radio-winds-kmh">KMH</label>
+                                        <input type="radio" id="radio-winds-mps" name="radio-winds" value="MPS">
+                                        <label class="text-label" for="radio-winds-mps">MPS</label>
+                                    </div>
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Gust(max/min):</p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-gust-max">
+                                    <input class="input-common" type="text" id="input-gust-min">
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Variable:</p>
+                                <div class="col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-gust-max">
+                                    <p class="text-label">V</p>
+                                    <input class="input-common" type="text" id="input-gust-min">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-visibility-rvr">
+                        <div class="tab-visibility">
+                            <p class="text-header text-label">Visibility</p>
+                            <div class="tab-visibility--content">
+                                <div class="tw-center tw-gap-1">
+                                    <input type="checkbox" id="report-visibility" name="report-visibility"/>
+                                    <label class="text-label" for="report-visibility">Report</label>
+                                </div>
+                                <div class="tw-center tw-gap-4">
+                                    <span class="text-label">Visibility: </span>
+                                    <select class="select-common" style="min-width: 50px" name="select-visibility"
+                                            id="select-visibility">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <form class="tw-center tw-gap-2">
+                                        <input type="radio" id="visibility-radio-m" name="visibility-radio" value="M">
+                                        <label class="text-label" for="visibility-radio-m">M</label>
+                                        <input type="radio" id="visibility-radio-km" name="visibility-radio" value="KM">
+                                        <label class="text-label" for="visibility-radio-km">KM</label>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-rvr">
+                            <p class="text-header text-label">RVR</p>
+                            <div class="tab-rvr--content">
+                                <div class="tw-center tw-gap-1">
+                                    <input type="checkbox" id="report-rvr" name="report-rvr"/>
+                                    <label class="text-label" for="report-rvr">Report</label>
+                                </div>
+                                <div class="tw-start tw-gap-4" style="width: 100%; margin-left: 40%;">
+                                    <span class="text-label">RVR: </span>
+                                    <select class="select-common" style="min-width: 50px" name="select-visibility"
+                                            id="select-visibility">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <form class="tw-center tw-gap-2">
+                                    <input type="radio" id="rvr-radio-above" name="rvr-radio" value="Above">
+                                    <label class="text-label" for="rvr-radio-above">Above</label>
+                                    <input type="radio" id="rvr-radio-below" name="rvr-radio" value="Below">
+                                    <label class="text-label" for="rvr-radio-below">Below</label>
+                                    <input type="radio" id="rvr-radio-neither" name="rvr-radio" value="Neither">
+                                    <label class="text-label" for="rvr-radio-neither">Neither</label>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-clouds">
+                        <p class="text-header text-label">Clouds</p>
+                        <div class="tw-center tw-gap-1">
+                            <input type="checkbox" id="report-clouds" name="report-clouds"/>
+                            <label class="text-label" for="report-clouds">Report</label>
+                        </div>
+                        <form class="tw-center tw-gap-2">
+                            <input type="radio" id="clouds-radio-feet" name="clouds-radio" value="Feet">
+                            <label class="text-label" for="clouds-radio-feet">Feet</label>
+                            <input type="radio" id="clouds-radio-meters" name="clouds-radio" value="Meters">
+                            <label class="text-label" for="clouds-radio-meters">Meters</label>
+                        </form>
+                        <form class="tw-center tw-gap-2">
+                            <span class="text-label">Clear: </span>
+                            <input type="radio" id="clouds-radio-clear-ncd" name="clouds-radio-clear" value="NCD">
+                            <label class="text-label" for="clouds-radio-clear-ncd">NCD</label>
+                            <input type="radio" id="clouds-radio-clear-skc" name="clouds-radio-clear" value="SKC">
+                            <label class="text-label" for="clouds-radio-clear-ncd">SKC</label>
+                            <input type="radio" id="clouds-radio-clear-nsc" name="clouds-radio-clear" value="NSC">
+                            <label class="text-label" for="clouds-radio-clear-nsc">NSC</label>
+                        </form>
+                        <div class="tw-grid tw-grid-cols-4 tw-gap-4">
+                            <p></p>
+                            <p class="text-label">Amount</p>
+                            <p class="text-label">Height</p>
+                            <p class="text-label">Type</p>
+                            <div class="tw-center tw-gap-1">
+                                <input type="checkbox" id="clouds-checkbox-layer-1" name="clouds-checkbox-layer"/>
+                                <label class="text-label" for="clouds-checkbox-layer">Layer 1</label>
+                            </div>
+                            <select class="select-common" style="width: 100%;" name="select-amount" id="select-amount-layer-1">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <input type="text" class="input-common clouds-height-layer-1" style="width: 100%">
+                            <select class="select-common" style="width: 100%;" name="select-type" id="select-type-layer-1">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+
+                            <div class="tw-center tw-gap-1">
+                                <input type="checkbox" id="clouds-checkbox-layer-2" name="clouds-checkbox-layer"/>
+                                <label class="text-label" for="clouds-checkbox-layer">Layer 2</label>
+                            </div>
+                            <select class="select-common" style="width: 100%;" name="select-amount" id="select-amount-layer-2">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <input type="text" class="input-common clouds-height-layer-2" style="width: 100%">
+                            <select class="select-common" style="width: 100%;" name="select-type" id="select-type-layer-2">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+
+                            <div class="tw-center tw-gap-1">
+                                <input type="checkbox" id="clouds-checkbox-layer-3" name="clouds-checkbox-layer"/>
+                                <label class="text-label" for="clouds-checkbox-layer">Layer 3</label>
+                            </div>
+                            <select class="select-common" style="width: 100%;" name="select-amount" id="select-amount-layer-3">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <input type="text" class="input-common clouds-height-layer-3" style="width: 100%">
+                            <select class="select-common" style="width: 100%;" name="select-type" id="select-type-layer-3">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="tw-start tw-gap-4">
+                            <p class="text-label">Vertical Visibility: </p>
+                            <input type="text" class="input-common clouds-vertical-visibility" style="width: 100px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="met-special-report--content__tab--main--content">
+                    <div class="tab-winds">
+                        <p class="text-header text-label">Winds</p>
+                        <div class="block-winds">
+                            <div class="tw-grid tw-grid-cols-12" style="row-gap: 16px">
+                                <p class="tw-col-span-4 text-label text-label-winds"></p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input type="checkbox" id="report-winds" name="report-winds">
+                                    <label class="text-label" for="report-winds">Report</label>
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Direction:</p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-direction">
+                                    <div class="tw-center tw-gap-1">
+                                        <input type="checkbox" id="report-winds" name="vrb-winds">
+                                        <label class="text-label" for="vrb-winds">VRB</label>
+                                    </div>
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Speed:</p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-direction">
+                                    <div class="tw-center tw-gap-1">
+                                        <input type="radio" id="radio-winds-kt" name="radio-winds" value="KT">
+                                        <label class="text-label" for="radio-winds-kt">KT</label>
+                                        <input type="radio" id="radio-winds-kmh" name="radio-winds" value="KMH">
+                                        <label class="text-label" for="radio-winds-kmh">KMH</label>
+                                        <input type="radio" id="radio-winds-mps" name="radio-winds" value="MPS">
+                                        <label class="text-label" for="radio-winds-mps">MPS</label>
+                                    </div>
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Gust(max/min):</p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-gust-max">
+                                    <input class="input-common" type="text" id="input-gust-min">
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Variable:</p>
+                                <div class="col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-gust-max">
+                                    <p class="text-label">V</p>
+                                    <input class="input-common" type="text" id="input-gust-min">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-visibility-rvr">
+                        <div class="tab-visibility">
+                            <p class="text-header text-label">Visibility</p>
+                            <div class="tab-visibility--content">
+                                <div class="tw-center tw-gap-1">
+                                    <input type="checkbox" id="report-visibility" name="report-visibility"/>
+                                    <label class="text-label" for="report-visibility">Report</label>
+                                </div>
+                                <div class="tw-center tw-gap-4">
+                                    <span class="text-label">Visibility: </span>
+                                    <select class="select-common" style="min-width: 50px" name="select-visibility"
+                                            id="select-visibility">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <form class="tw-center tw-gap-2">
+                                        <input type="radio" id="visibility-radio-m" name="visibility-radio" value="M">
+                                        <label class="text-label" for="visibility-radio-m">M</label>
+                                        <input type="radio" id="visibility-radio-km" name="visibility-radio" value="KM">
+                                        <label class="text-label" for="visibility-radio-km">KM</label>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-rvr">
+                            <p class="text-header text-label">RVR</p>
+                            <div class="tab-rvr--content">
+                                <div class="tw-center tw-gap-1">
+                                    <input type="checkbox" id="report-rvr" name="report-rvr"/>
+                                    <label class="text-label" for="report-rvr">Report</label>
+                                </div>
+                                <div class="tw-start tw-gap-4" style="width: 100%; margin-left: 40%;">
+                                    <span class="text-label">RVR: </span>
+                                    <select class="select-common" style="min-width: 50px" name="select-visibility"
+                                            id="select-visibility">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <form class="tw-center tw-gap-2">
+                                    <input type="radio" id="rvr-radio-above" name="rvr-radio" value="Above">
+                                    <label class="text-label" for="rvr-radio-above">Above</label>
+                                    <input type="radio" id="rvr-radio-below" name="rvr-radio" value="Below">
+                                    <label class="text-label" for="rvr-radio-below">Below</label>
+                                    <input type="radio" id="rvr-radio-neither" name="rvr-radio" value="Neither">
+                                    <label class="text-label" for="rvr-radio-neither">Neither</label>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-clouds">
+                        <p class="text-header text-label">Clouds</p>
+                        <div class="tw-center tw-gap-1">
+                            <input type="checkbox" id="report-clouds" name="report-clouds"/>
+                            <label class="text-label" for="report-clouds">Report</label>
+                        </div>
+                        <form class="tw-center tw-gap-2">
+                            <input type="radio" id="clouds-radio-feet" name="clouds-radio" value="Feet">
+                            <label class="text-label" for="clouds-radio-feet">Feet</label>
+                            <input type="radio" id="clouds-radio-meters" name="clouds-radio" value="Meters">
+                            <label class="text-label" for="clouds-radio-meters">Meters</label>
+                        </form>
+                        <form class="tw-center tw-gap-2">
+                            <span class="text-label">Clear: </span>
+                            <input type="radio" id="clouds-radio-clear-ncd" name="clouds-radio-clear" value="NCD">
+                            <label class="text-label" for="clouds-radio-clear-ncd">NCD</label>
+                            <input type="radio" id="clouds-radio-clear-skc" name="clouds-radio-clear" value="SKC">
+                            <label class="text-label" for="clouds-radio-clear-ncd">SKC</label>
+                            <input type="radio" id="clouds-radio-clear-nsc" name="clouds-radio-clear" value="NSC">
+                            <label class="text-label" for="clouds-radio-clear-nsc">NSC</label>
+                        </form>
+                        <div class="tw-grid tw-grid-cols-4 tw-gap-4">
+                            <p></p>
+                            <p class="text-label">Amount</p>
+                            <p class="text-label">Height</p>
+                            <p class="text-label">Type</p>
+                            <div class="tw-center tw-gap-1">
+                                <input type="checkbox" id="clouds-checkbox-layer-1" name="clouds-checkbox-layer"/>
+                                <label class="text-label" for="clouds-checkbox-layer">Layer 1</label>
+                            </div>
+                            <select class="select-common" style="width: 100%;" name="select-amount" id="select-amount-layer-1">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <input type="text" class="input-common clouds-height-layer-1" style="width: 100%">
+                            <select class="select-common" style="width: 100%;" name="select-type" id="select-type-layer-1">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+
+                            <div class="tw-center tw-gap-1">
+                                <input type="checkbox" id="clouds-checkbox-layer-2" name="clouds-checkbox-layer"/>
+                                <label class="text-label" for="clouds-checkbox-layer">Layer 2</label>
+                            </div>
+                            <select class="select-common" style="width: 100%;" name="select-amount" id="select-amount-layer-2">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <input type="text" class="input-common clouds-height-layer-2" style="width: 100%">
+                            <select class="select-common" style="width: 100%;" name="select-type" id="select-type-layer-2">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+
+                            <div class="tw-center tw-gap-1">
+                                <input type="checkbox" id="clouds-checkbox-layer-3" name="clouds-checkbox-layer"/>
+                                <label class="text-label" for="clouds-checkbox-layer">Layer 3</label>
+                            </div>
+                            <select class="select-common" style="width: 100%;" name="select-amount" id="select-amount-layer-3">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <input type="text" class="input-common clouds-height-layer-3" style="width: 100%">
+                            <select class="select-common" style="width: 100%;" name="select-type" id="select-type-layer-3">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="tw-start tw-gap-4">
+                            <p class="text-label">Vertical Visibility: </p>
+                            <input type="text" class="input-common clouds-vertical-visibility" style="width: 100px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="met-special-report--content__tab--main--content">
+                    <div class="tab-winds">
+                        <p class="text-header text-label">Winds</p>
+                        <div class="block-winds">
+                            <div class="tw-grid tw-grid-cols-12" style="row-gap: 16px">
+                                <p class="tw-col-span-4 text-label text-label-winds"></p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input type="checkbox" id="report-winds" name="report-winds">
+                                    <label class="text-label" for="report-winds">Report</label>
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Direction:</p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-direction">
+                                    <div class="tw-center tw-gap-1">
+                                        <input type="checkbox" id="report-winds" name="vrb-winds">
+                                        <label class="text-label" for="vrb-winds">VRB</label>
+                                    </div>
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Speed:</p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-direction">
+                                    <div class="tw-center tw-gap-1">
+                                        <input type="radio" id="radio-winds-kt" name="radio-winds" value="KT">
+                                        <label class="text-label" for="radio-winds-kt">KT</label>
+                                        <input type="radio" id="radio-winds-kmh" name="radio-winds" value="KMH">
+                                        <label class="text-label" for="radio-winds-kmh">KMH</label>
+                                        <input type="radio" id="radio-winds-mps" name="radio-winds" value="MPS">
+                                        <label class="text-label" for="radio-winds-mps">MPS</label>
+                                    </div>
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Gust(max/min):</p>
+                                <div class="tw-col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-gust-max">
+                                    <input class="input-common" type="text" id="input-gust-min">
+                                </div>
+                                <p class="tw-col-span-4 text-label text-label-winds">Variable:</p>
+                                <div class="col-span-8 tw-start tw-gap-1">
+                                    <input class="input-common" type="text" id="input-gust-max">
+                                    <p class="text-label">V</p>
+                                    <input class="input-common" type="text" id="input-gust-min">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-visibility-rvr">
+                        <div class="tab-visibility">
+                            <p class="text-header text-label">Visibility</p>
+                            <div class="tab-visibility--content">
+                                <div class="tw-center tw-gap-1">
+                                    <input type="checkbox" id="report-visibility" name="report-visibility"/>
+                                    <label class="text-label" for="report-visibility">Report</label>
+                                </div>
+                                <div class="tw-center tw-gap-4">
+                                    <span class="text-label">Visibility: </span>
+                                    <select class="select-common" style="min-width: 50px" name="select-visibility"
+                                            id="select-visibility">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <form class="tw-center tw-gap-2">
+                                        <input type="radio" id="visibility-radio-m" name="visibility-radio" value="M">
+                                        <label class="text-label" for="visibility-radio-m">M</label>
+                                        <input type="radio" id="visibility-radio-km" name="visibility-radio" value="KM">
+                                        <label class="text-label" for="visibility-radio-km">KM</label>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-rvr">
+                            <p class="text-header text-label">RVR</p>
+                            <div class="tab-rvr--content">
+                                <div class="tw-center tw-gap-1">
+                                    <input type="checkbox" id="report-rvr" name="report-rvr"/>
+                                    <label class="text-label" for="report-rvr">Report</label>
+                                </div>
+                                <div class="tw-start tw-gap-4" style="width: 100%; margin-left: 40%;">
+                                    <span class="text-label">RVR: </span>
+                                    <select class="select-common" style="min-width: 50px" name="select-visibility"
+                                            id="select-visibility">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <form class="tw-center tw-gap-2">
+                                    <input type="radio" id="rvr-radio-above" name="rvr-radio" value="Above">
+                                    <label class="text-label" for="rvr-radio-above">Above</label>
+                                    <input type="radio" id="rvr-radio-below" name="rvr-radio" value="Below">
+                                    <label class="text-label" for="rvr-radio-below">Below</label>
+                                    <input type="radio" id="rvr-radio-neither" name="rvr-radio" value="Neither">
+                                    <label class="text-label" for="rvr-radio-neither">Neither</label>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-clouds">
+                        <p class="text-header text-label">Clouds</p>
+                        <div class="tw-center tw-gap-1">
+                            <input type="checkbox" id="report-clouds" name="report-clouds"/>
+                            <label class="text-label" for="report-clouds">Report</label>
+                        </div>
+                        <form class="tw-center tw-gap-2">
+                            <input type="radio" id="clouds-radio-feet" name="clouds-radio" value="Feet">
+                            <label class="text-label" for="clouds-radio-feet">Feet</label>
+                            <input type="radio" id="clouds-radio-meters" name="clouds-radio" value="Meters">
+                            <label class="text-label" for="clouds-radio-meters">Meters</label>
+                        </form>
+                        <form class="tw-center tw-gap-2">
+                            <span class="text-label">Clear: </span>
+                            <input type="radio" id="clouds-radio-clear-ncd" name="clouds-radio-clear" value="NCD">
+                            <label class="text-label" for="clouds-radio-clear-ncd">NCD</label>
+                            <input type="radio" id="clouds-radio-clear-skc" name="clouds-radio-clear" value="SKC">
+                            <label class="text-label" for="clouds-radio-clear-ncd">SKC</label>
+                            <input type="radio" id="clouds-radio-clear-nsc" name="clouds-radio-clear" value="NSC">
+                            <label class="text-label" for="clouds-radio-clear-nsc">NSC</label>
+                        </form>
+                        <div class="tw-grid tw-grid-cols-4 tw-gap-4">
+                            <p></p>
+                            <p class="text-label">Amount</p>
+                            <p class="text-label">Height</p>
+                            <p class="text-label">Type</p>
+                            <div class="tw-center tw-gap-1">
+                                <input type="checkbox" id="clouds-checkbox-layer-1" name="clouds-checkbox-layer"/>
+                                <label class="text-label" for="clouds-checkbox-layer">Layer 1</label>
+                            </div>
+                            <select class="select-common" style="width: 100%;" name="select-amount" id="select-amount-layer-1">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <input type="text" class="input-common clouds-height-layer-1" style="width: 100%">
+                            <select class="select-common" style="width: 100%;" name="select-type" id="select-type-layer-1">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+
+                            <div class="tw-center tw-gap-1">
+                                <input type="checkbox" id="clouds-checkbox-layer-2" name="clouds-checkbox-layer"/>
+                                <label class="text-label" for="clouds-checkbox-layer">Layer 2</label>
+                            </div>
+                            <select class="select-common" style="width: 100%;" name="select-amount" id="select-amount-layer-2">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <input type="text" class="input-common clouds-height-layer-2" style="width: 100%">
+                            <select class="select-common" style="width: 100%;" name="select-type" id="select-type-layer-2">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+
+                            <div class="tw-center tw-gap-1">
+                                <input type="checkbox" id="clouds-checkbox-layer-3" name="clouds-checkbox-layer"/>
+                                <label class="text-label" for="clouds-checkbox-layer">Layer 3</label>
+                            </div>
+                            <select class="select-common" style="width: 100%;" name="select-amount" id="select-amount-layer-3">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <input type="text" class="input-common clouds-height-layer-3" style="width: 100%">
+                            <select class="select-common" style="width: 100%;" name="select-type" id="select-type-layer-3">
+                                <option value="FEW">FEW</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="tw-start tw-gap-4">
+                            <p class="text-label">Vertical Visibility: </p>
+                            <input type="text" class="input-common clouds-vertical-visibility" style="width: 100px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="met-special-report--content__present-weather">
+            <div class="met-special-report--content__present-weather--content">
+                <div class="met-special-report--content__present-weather--content--left">
+                    <p class="text-header text-label">Present Weather</p>
+                    <div class="tw-grid tw-grid-cols-4 tw-gap-2">
+                        <p></p>
+                        <p class="text-label">Group 1</p>
+                        <p class="text-label">Group 2</p>
+                        <p class="text-label">Group 3</p>
+
+                        <p class="text-label">Itensity: </p>
+                        <select class="select-common" style="width: 100%;" id="select-present-intensity-group-1">
+                            <option value="0">0</option>
+                        </select>
+                        <select class="select-common" style="width: 100%;" id="select-present-intensity-group-2">
+                            <option value="0">0</option>
+                        </select>
+                        <select class="select-common" style="width: 100%;" id="select-present-intensity-group-3">
+                            <option value="0">0</option>
+                        </select>
+
+                        <p class="text-label">Desciptor: </p>
+                        <select class="select-common" style="width: 100%;" id="select-present-desciptor-group-1">
+                            <option value="0">0</option>
+                        </select>
+                        <select class="select-common" style="width: 100%;" id="select-present-desciptor-group-2">
+                            <option value="0">0</option>
+                        </select>
+                        <select class="select-common" style="width: 100%;" id="select-present-desciptor-group-3">
+                            <option value="0">0</option>
+                        </select>
+
+                        <p class="text-label">Phenonmenon: </p>
+                        <select class="select-common" style="width: 100%;" id="select-present-phenonmenon-group-1">
+                            <option value="0">0</option>
+                        </select>
+                        <select class="select-common" style="width: 100%;" id="select-present-phenonmenon-group-2">
+                            <option value="0">0</option>
+                        </select>
+                        <select class="select-common" style="width: 100%;" id="select-present-phenonmenon-group-3">
+                            <option value="0">0</option>
+                        </select>
+
+                        <p class="text-label">Phenonmenon: </p>
+                        <select class="select-common" style="width: 100%;" id="select-present-phenonmenon-group-1">
+                            <option value="0">0</option>
+                        </select>
+                        <select class="select-common" style="width: 100%;" id="select-present-phenonmenon-group-2">
+                            <option value="0">0</option>
+                        </select>
+                        <select class="select-common" style="width: 100%;" id="select-present-phenonmenon-group-3">
+                            <option value="0">0</option>
+                        </select>
+
+                        <p class="text-label">Phenonmenon: </p>
+                        <select class="select-common" style="width: 100%;" id="select-present-phenonmenon-group-1">
+                            <option value="0">0</option>
+                        </select>
+                        <select class="select-common" style="width: 100%;" id="select-present-phenonmenon-group-2">
+                            <option value="0">0</option>
+                        </select>
+                        <select class="select-common" style="width: 100%;" id="select-present-phenonmenon-group-3">
+                            <option value="0">0</option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="met-special-report--content__present-weather--content--right">
+                    <div class="tw-grid tw-grid-cols-2 tw-gap-1">
+
+                        <p class="text-label">Air Temperature: </p>
+                        <div class="tw-start tw-gap-2">
+                            <input type="text" class="input-common input-weather present-weather-air-temperate">
+                            <span>&deg;C</span>
+                        </div>
+                        <p class="text-label">Dew Point: </p>
+                        <div class="tw-start tw-gap-2">
+                            <input type="text" class="input-common  input-weather present-weather-dew-point">
+                            <span>&deg;C</span>
+                        </div>
+                        <p class="text-label">QNH: </p>
+                        <div class="tw-start tw-gap-2">
+                            <input type="text" class="input-common input-weather present-weather-qnh">
+                            <form class="tw-center tw-gap-2">
+                                <input type="radio" id="present-weather-radio-hpa" name="present-weather-radio" value="hPa">
+                                <label class="text-label" for="present-weather-radio-hpa">hPa</label>
+                                <input type="radio" id="present-weather-radio-inhg" name="present-weather-radio" value="inHg">
+                                <label class="text-label" for="present-weather-radio-inhg">inHg</label>
+                            </form>
+                        </div>
+                        <p class="text-label">QEF 14: </p>
+                        <div class="tw-start tw-gap-2">
+                            <input type="text" class="input-common input-weather present-weather-qef-14">
+                        </div>
+                        <p class="text-label">QEF 32: </p>
+                        <div class="tw-start tw-gap-2">
+                            <input type="text" class="input-common input-weather present-weather-qef-32">
+                        </div>
+                        <p class="text-label">Recent Weather: </p>
+                        <div class="tw-start tw-gap-2">
+                            <select class="select-common" style="width: 100px;" name="select-amount" id="select-recent-weather">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="met-special-report--content__trend">
+            <span class="text-label">Trend: </span>
+            <input type="text" class="input-common clouds-height-layer-2" style="width: 100%">
+        </div>
+
+        <div class="met-special-report--content__equal">
+            <label class="text-label" for="equal-sign">Equal sign at the end: </label>
+            <input type="checkbox" id="equal-sign" name="equal-sign"/>
+        </div>
+
+        <div class="met-special-report--content__preview">
+            <p class="text-header text-label">Preview</p>
+            <textarea id="preview-textarea" class="textarea-common" style="width: 100%;" name="w3review" rows="4" cols="50"></textarea>
+        </div>
+
+    </div>
+
+    <div class="block-footer">
+        <button class="btn-footer">
+            <span class="text-label">Send</span>
+        </button>
+        <button class="btn-footer">
+            <span class="text-label">Cancel</span>
+        </button>
+        <button class="btn-footer">
+            <span class="text-label">Refresh</span>
+        </button>
+    </div>
+</div>
+</body>
+</html>
