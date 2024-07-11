@@ -6,7 +6,7 @@
     font-weight: 400;
 }
 body, p, span {
-    margin: 0;
+    margin: 0 !important;
     padding: 0;
 }
 .tw-center {
@@ -72,13 +72,12 @@ body, p, span {
     padding: 0 4px;
 }
 .text-label {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     color: black;
     line-height: 16px;
 }
 .met-special-report {
-    margin: 32px auto;
     max-width: 1920px;
     background: white;
     border: 1px solid #6F7377;
@@ -109,11 +108,12 @@ body, p, span {
 .met-special-report--content {
     background: #EEECED;
     padding: 8px 12px;
+    padding-bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
 }
 .met-special-report--content__menual-input {
     display: flex;
@@ -125,7 +125,7 @@ body, p, span {
     width: 100%;
     position: relative;
     border: 1px solid #bbbcc0;
-    padding: 16px;
+    padding: 8px;
 }
 .met-special-report--content__met-report .text-header {
     position: absolute;
@@ -144,7 +144,7 @@ body, p, span {
     width: 100%;
     position: relative;
     border: 1px solid #bbbcc0;
-    padding: 16px;
+    padding: 8px;
 }
 .met-special-report--content__cavok .text-header {
     position: absolute;
@@ -157,12 +157,12 @@ body, p, span {
     width: 100%;
     position: relative;
     border: 1px solid #bbbcc0;
-    padding: 16px;
+    padding: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 4px;
-    padding-bottom: 50px;
+    padding-bottom: 32px;
 }
 .met-special-report--content__tab--tdz {
     padding: 16px 8px;
@@ -178,7 +178,7 @@ body, p, span {
 }
 .met-special-report--content__tab--main {
     width: 100%;
-    min-height: 385px;
+    min-height: 335px;
     position: relative;
 }
 .met-special-report--content__tab--main--header {
@@ -213,7 +213,7 @@ body, p, span {
 .met-special-report--content__tab--main--content .tab-winds {
     margin: 16px 0px 8px 8px;
     padding: 48px 8px;
-    height: 354px;
+    height: 300px;
     border: 1px solid #bbbcc0;
     position: relative;
 }
@@ -229,7 +229,7 @@ body, p, span {
 }
 .met-special-report--content__tab--main--content .tab-visibility {
     margin: 16px 0px 8px 8px;
-    padding: 48px 8px;
+    padding: 35px 8px;
     border: 1px solid #bbbcc0;
     position: relative;
 }
@@ -248,7 +248,7 @@ body, p, span {
 }
 .met-special-report--content__tab--main--content .tab-rvr {
     margin: 16px 0px 8px 8px;
-    padding: 48px 8px;
+    padding: 34px 8px;
     border: 1px solid #bbbcc0;
     position: relative;
 }
@@ -267,7 +267,7 @@ body, p, span {
 }
 .met-special-report--content__tab--main--content .tab-clouds {
     margin: 16px 8px 8px 8px;
-    padding: 48px 8px;
+    padding: 16px 8px;
     border: 1px solid #bbbcc0;
     position: relative;
     display: flex;
@@ -275,7 +275,7 @@ body, p, span {
     justify-content: start;
     align-items: start;
     gap: 16px;
-    height: 354px;
+    height: 300px;
 }
 .met-special-report--content__tab--main--content .tab-clouds .text-header {
     position: absolute;
@@ -297,7 +297,7 @@ body, p, span {
     width: 30%;
     position: relative;
     border: 1px solid #bbbcc0;
-    padding: 16px;
+    padding: 8px;
 }
 .met-special-report--content__present-weather--content--left .text-header {
     position: absolute;
@@ -310,7 +310,7 @@ body, p, span {
     width: 30%;
     position: relative;
     border: 1px solid #bbbcc0;
-    padding: 16px;
+    padding: 8px;
 }
 .met-special-report--content__present-weather--content--right .input-weather {
     width: 60px;
@@ -333,7 +333,7 @@ body, p, span {
     width: 100%;
     position: relative;
     border: 1px solid #bbbcc0;
-    padding: 16px;
+    padding: 8px;
 }
 .met-special-report--content__preview .text-header {
     position: absolute;
@@ -347,7 +347,7 @@ body, p, span {
     justify-content: center;
     align-items: center;
     gap: 8px;
-    padding: 16px;
+    padding: 8px;
     background: #EEEEEE;
 }
 .met-special-report .block-footer .btn-footer {
